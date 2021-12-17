@@ -14,6 +14,9 @@ ITERATIONS = 10
 
 
 def main():
+    """
+    Entry point of scraping, parsing and indexing.
+    """
     es = open_es_connection()
     scraper = get_scraper(es)
 

@@ -4,6 +4,9 @@ import warnings
 
 
 def main():
+    """
+    Entry point of search.
+    """
     warnings.simplefilter("ignore")
     es_search = ESDataSearch()
     ui = QueryUI(es_search)
