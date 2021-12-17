@@ -1,0 +1,37 @@
+{
+    "dynamic": "strict",
+    "properties": {
+        "url": {
+            "type": "keyword"
+        },
+        "id": {
+            "type": "integer"
+        },
+        "nickname": {
+            "type": "text",
+            "fields": {
+                "keyword": {
+                    "type": "keyword"
+                }
+            }
+        },
+        "language": {
+            "type": "keyword"
+        },
+        "country": {
+            "type": "keyword"
+        },
+        "birth_date": {
+            "type": "keyword"
+        },
+        "gender": {
+            "type": "keyword"
+        },
+        "registration_date": {
+            "type": "keyword"
+        },
+        "points": {
+            "type": "float"
+        }
+    }
+}

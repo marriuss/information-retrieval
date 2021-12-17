@@ -1,0 +1,29 @@
+{
+  "number_of_shards": 1,
+  "number_of_replicas": 1,
+  "analysis": {
+    "analyzer": {
+      "text_analyzer": {
+        "type": "custom",
+        "tokenizer": "whitespace",
+        "char_filter": [
+          "html_strip"
+        ],
+        "filter": {
+          "min_length_3": {
+            "type": "length",
+            "min": 3
+          },
+          "russian_stemmer": {
+            "type": "stemmer",
+            "language": "russian"
+          },
+          "russian_stop_words": {
+            "type": "stop",
+            "stopwords": "_russian_"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "dynamic": "strict",
+    "properties": {
+        "url": {"type": "keyword"},
+        "name": {
+            "type": "text",
+            "fields": {
+            "keyword": {"type": "keyword"}
+            }
+        },
+        "author": {
+            "type": "text",
+            "fields": {
+            "keyword": {"type": "keyword"}
+            }
+        },
+        "game": {
+            "type": "text",
+            "fields": {
+                "keyword": {"type": "keyword"}
+            }
+        },
+        "date": {"type": "keyword"},
+        "language": {"type": "keyword"},
+        "description": {"type": "text"},
+        "size": {"type": "keyword"},
+        "teams": {"type": "integer"},
+        "players": {"type": "integer"},
+        "humans": {"type": "integer"},
+        "rating": {"type": "integer"},
+        "likes": {"type": "integer"},
+        "dislikes": {"type": "integer"},
+        "downloads": {"type": "integer"},
+        "comments": {"type": "integer"}
+    }
+}

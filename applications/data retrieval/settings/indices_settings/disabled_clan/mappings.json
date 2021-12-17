@@ -1,0 +1,27 @@
+{
+    "dynamic": "strict",
+    "properties": {
+        "url": {"type": "keyword"},
+        "title": {
+            "type": "text",
+            "fields": {
+                "keyword": {"type": "keyword"}
+            }
+        },
+        "members": {
+            "type": "text",
+            "fields": {
+                "keyword": {"type": "keyword"}
+            }
+        },
+        "leader": {
+            "type": "text",
+            "fields": {
+                "keyword": {"type": "keyword"}
+            }
+        },
+        "start_date": {"type": "keyword"},
+        "end_date": {"type": "keyword"},
+        "rules": {"type": "text"}
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "dynamic": "strict",
+    "properties": {
+            "url": {"type": "keyword"},
+            "game": {
+                "type": "text",
+                "fields": {
+                    "keyword": {"type": "keyword"}
+                }
+            },
+            "article_title": {
+                "type": "text",
+                "fields": {
+                    "keyword": {"type": "keyword"}
+                }
+            },
+            "article_text": {"type": "text"}
+    }
+}
