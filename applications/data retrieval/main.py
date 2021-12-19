@@ -42,4 +42,5 @@ def main():
         es.close_connection()
 
 
-main()
+if __name__ == "__main__":
+    main()

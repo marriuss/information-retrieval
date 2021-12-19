@@ -13,4 +13,5 @@ def main():
     ui.welcome()
 
 
-main()
+if __name__ == "__main__":
+    main()
