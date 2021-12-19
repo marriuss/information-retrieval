@@ -4,16 +4,15 @@
         "url": {"type": "keyword"},
         "title": {
             "type": "text",
-            "fields": {
-                "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "members": {
             "type": "text",
-            "fields": {
-                "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
-        "rules": {"type": "text"}
+        "rules": {
+            "type": "text",
+            "analyzer": "text_analyzer"
+        }
     }
 }

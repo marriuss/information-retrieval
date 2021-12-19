@@ -2,28 +2,29 @@
   "number_of_shards": 1,
   "number_of_replicas": 1,
   "analysis": {
-    "analyzer": {
-      "text_analyzer": {
-        "type": "custom",
-        "tokenizer": "whitespace",
-        "char_filter": [
-          "html_strip"
-        ],
-        "filter": {
-          "min_length_3": {
-            "type": "length",
-            "min": 3
-          },
+      "filter": {
           "russian_stemmer": {
-            "type": "stemmer",
-            "language": "russian"
+              "type": "snowball",
+              "language": "russian"
           },
           "russian_stop_words": {
-            "type": "stop",
-            "stopwords": "_russian_"
+              "type": "stop",
+              "language": "_russian_"
           }
-        }
+      },
+      "analyzer": {
+          "text_analyzer": {
+              "filter": [
+                  "russian_stemmer",
+                  "lowercase",
+                  "russian_stop_words"
+              ],
+              "char_filter": [
+                  "html_strip"
+              ],
+              "type": "custom",
+              "tokenizer": "whitespace"
+          }
       }
-    }
   }
 }

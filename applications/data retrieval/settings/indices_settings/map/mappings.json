@@ -4,25 +4,25 @@
         "url": {"type": "keyword"},
         "name": {
             "type": "text",
-            "fields": {
-            "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "author": {
             "type": "text",
-            "fields": {
-            "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "game": {
             "type": "text",
-            "fields": {
-                "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "date": {"type": "keyword"},
-        "language": {"type": "keyword"},
-        "description": {"type": "text"},
+        "language": {
+            "type": "text",
+            "analyzer": "text_analyzer"
+        },
+        "description": {
+            "type": "text",
+            "analyzer": "text_analyzer"
+        },
         "size": {"type": "keyword"},
         "teams": {"type": "integer"},
         "players": {"type": "integer"},

@@ -4,24 +4,21 @@
         "url": {"type": "keyword"},
         "title": {
             "type": "text",
-            "fields": {
-                "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "members": {
             "type": "text",
-            "fields": {
-                "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "leader": {
             "type": "text",
-            "fields": {
-                "keyword": {"type": "keyword"}
-            }
+            "analyzer": "text_analyzer"
         },
         "start_date": {"type": "keyword"},
         "end_date": {"type": "keyword"},
-        "rules": {"type": "text"}
+        "rules": {
+            "type": "text",
+            "analyzer": "text_analyzer"
+        }
     }
 }

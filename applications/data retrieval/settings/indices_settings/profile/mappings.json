@@ -9,23 +9,22 @@
         },
         "nickname": {
             "type": "text",
-            "fields": {
-                "keyword": {
-                    "type": "keyword"
-                }
-            }
+            "analyzer": "text_analyzer"
         },
         "language": {
-            "type": "keyword"
+            "type": "text",
+            "analyzer": "text_analyzer"
         },
         "country": {
-            "type": "keyword"
+            "type": "text",
+            "analyzer": "text_analyzer"
         },
         "birth_date": {
             "type": "keyword"
         },
         "gender": {
-            "type": "keyword"
+            "type": "text",
+            "analyzer": "text_analyzer"
         },
         "registration_date": {
             "type": "keyword"
