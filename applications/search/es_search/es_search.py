@@ -15,26 +15,37 @@ class ESDataSearch(ESConnection):
                 if query_dict is not None:
                     size = query_dict["size"]
                     query_relations = query_dict["queries"]
-
-                    def get_queries(relation):
-                        queries = []
-                        for query in query_relations[relation]:
+                    relations = {"must": [], "should": []}
+                    for relation, queries in query_relations.items():
+                        for query in queries:
                             field = query["field"]
                             q = query["query"]
                             operator = query["operator"]
-                            queries.append(Q("match",
-                                             **{field: {
-                                                    "query": q,
-                                                    "prefix_length": 2,
-                                                    "fuzziness": "AUTO",
-                                                    "operator": operator
-                                             }}))
-                        return queries
-
+                            query_match = Q("match",
+                                            **{field: {
+                                                "query": q,
+                                                "operator": operator,
+                                                "boost": 1.3,
+                                            }})
+                            query_match_phase = Q("match_phrase",
+                                                  **{field: {
+                                                      "query": q,
+                                                      "boost": 1.7
+                                                  }})
+                            query_fuzzy = Q("fuzzy",
+                                            **{field: {
+                                                "value": q,
+                                                "prefix_length": 2,
+                                                "boost": 1.0
+                                            }})
+                            q_list = [query_match, query_match_phase, query_fuzzy]
+                            relations[relation].extend(
+                                [Q("bool", should=q_list)] if relation == "must"
+                                else q_list
+                            )
                     q = Q("bool",
-                          must=get_queries("must"),
-                          should=get_queries("should"),
-                          must_not=get_queries("must_not")
+                          must=relations["must"],
+                          should=relations["should"]
                           )
 
                     s = s.query(q)
@@ -56,4 +67,3 @@ class ESDataSearch(ESConnection):
         if self._connected():
             return self._es.indices.get_mapping(index=index)[index]["mappings"]["properties"].keys()
         return None
-

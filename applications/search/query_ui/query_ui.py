@@ -53,13 +53,13 @@ class QueryUI:
             print("\nType all of them you need:")
             input_fields = re.sub(r'(\s){2,}', ' ', input().strip()).split(' ')
             fields = [x for x in input_fields if x in available_fields]
-        queries = {"must": [], "must_not": [], "should": []}
+        queries = {"must": [], "should": []}
         for f in fields:
             print(f'\nOptions for the field "{f}".')
             q = input(f'\nType your query: ').strip()
             relation = ""
-            while relation not in ["must", "should", "must_not"]:
-                relation = input(f'Choose a relation (must/should/must_not): ').strip()
+            while relation not in ["must", "should"]:
+                relation = input(f'Choose a relation (must/should): ').strip()
             ans = ""
             while ans not in ["y", "n"]:
                 ans = input(f'Do you need an exact match with the query? (y/n): ').strip()
